@@ -25,12 +25,20 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "incidencias/src/environments/environment.ts",
+                  "with": "incidencias/src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -87,12 +95,26 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "incidencias:build:production",
+            "firebaseProject": "incidencias-8ae39",
+            "firebaseHostingSite": "incidencias-8ae39"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "630e0e8a-610e-4200-ba52-951292f48f93"
   }
 }
