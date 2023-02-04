@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,12 +91,26 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "incidenciasv2:build:production",
+            "firebaseProject": "incidencias-8ae39",
+            "firebaseHostingSite": "incidencias-8ae39"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4ef3852d-4b37-408a-87e4-64a4607d6ccd"
   }
 }

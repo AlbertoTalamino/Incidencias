@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "incidencias-8ae39": {
+      "hosting": {
+        "incidenciasv2": [
+          "incidencias-8ae39"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "incidencias-8ae39"
+  }
+}
