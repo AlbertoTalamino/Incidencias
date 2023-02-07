@@ -1,1 +1,62 @@
-<p>gestion-incidencias works!</p>
+<div class="contenedor">
+    <div class="card">  
+        <form [formGroup]="dataIncidencia">
+            <div class="form-group">
+              <label>Persona</label>
+              <input class="form-control" formControlName="persona" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Lugar</label>
+                <input class="form-control" formControlName="lugar" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input class="form-control" formControlName="descripcion" readonly> 
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Fecha</label>
+                <input class="form-control" formControlName="fecha" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Responsable</label>
+                <input class="form-control" formControlName="responsable">
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Estado</label>
+                <!--<select class="form-control" formControlName="estado">
+                    <option>Leida</option>             
+                    <option>Asignada</option>
+                    <option>Comenzada</option>
+                    <option>Terminada</option>
+                </select>-->
+                <input class="form-control" formControlName="estado">
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Solucion</label>
+                <input class="form-control" formControlName="solucion">
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Revisada</label>
+                <input class="form-control" formControlName="revisada" readonly>
+            </div>
+
+            <br/>
+            <button class="btn btn-info" type="button" class="btn btn-success" (click)="actualizarEstado()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actualizar estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+           
+        </form>
+    </div>
+</div>

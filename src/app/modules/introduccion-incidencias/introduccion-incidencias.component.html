@@ -1,1 +1,33 @@
-<p>introduccion-incidencias works!</p>
+<div class="contenedor">
+    <div class="card">  
+        <form [formGroup]="dataIncidencia">
+            <div class="form-group">
+              <label>Persona</label>
+              <input class="form-control" formControlName="persona">
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Lugar</label>
+                <input class="form-control" formControlName="lugar">
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input class="form-control" formControlName="descripcion">
+            </div>
+
+            <br/>
+            <button class="btn btn-info" type="button" class="btn btn-success" (click)="anotarIncidencia()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Anotar Incidencia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+           
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+

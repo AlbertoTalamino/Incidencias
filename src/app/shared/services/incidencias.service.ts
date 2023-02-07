@@ -14,32 +14,32 @@ export class IncidenciasService {
   //CRUD
 
   //Read a single one
-  getMascota(documentId: string){
+  getIncidencia(documentId: string){
     return this.firebase.collection(this.miColeccion).doc(documentId).snapshotChanges();
   }
 
   //Read all
-  getAllMascotas(){
+  getAllIncidencias(){
     return this.firebase.collection(this.miColeccion).snapshotChanges();
   }
  
   //Create
-  newMascota(incidencia: Incidencia){
+  newIncidencia(incidencia: Incidencia){
     return this.firebase.collection(this.miColeccion).add(incidencia);
   }
 
   //Update
-  updateMascota(documentId: string, incidencia: Incidencia){
+  updateIncidencia(documentId: string, incidencia: Incidencia){
     return this.firebase.collection(this.miColeccion).doc(documentId).update(incidencia);
   }
 
   //Delete
-  deleteMascota(documentId: string){
+  deleteIncidencia(documentId: string){
     return this.firebase.collection(this.miColeccion).doc(documentId).delete();
   }
 
   //Where
-  getSpecificMascota(documentId: string, id: number){
+  getSpecificIncidencia(documentId: string, id: number){
     return this.firebase.collection(this.miColeccion, ref => ref.where('id', '==', id)).doc(documentId).snapshotChanges();
   }
 }

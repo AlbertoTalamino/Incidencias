@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { RevisionIncidenciasRoutingModule } from './revision-incidencias-routing.module';
 import { RevisionIncidenciasComponent } from './revision-incidencias.component';
+import { ListadoIncidenciasComponent } from './listado-incidencias/listado-incidencias.component';
 
 
 @NgModule({
   declarations: [
-    RevisionIncidenciasComponent
+    RevisionIncidenciasComponent,
+    ListadoIncidenciasComponent
   ],
   imports: [
     CommonModule,

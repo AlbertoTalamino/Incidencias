@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { IntroduccionIncidenciasRoutingModule } from './introduccion-incidencias-routing.module';
 import { IntroduccionIncidenciasComponent } from './introduccion-incidencias.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { IntroduccionIncidenciasComponent } from './introduccion-incidencias.com
   ],
   imports: [
     CommonModule,
-    IntroduccionIncidenciasRoutingModule
+    IntroduccionIncidenciasRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class IntroduccionIncidenciasModule { }

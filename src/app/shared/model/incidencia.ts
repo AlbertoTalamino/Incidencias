@@ -6,4 +6,5 @@ export interface Incidencia {
     responsable: string;
     estado: string;
     solucion: string;
+    revisada: boolean;
 }

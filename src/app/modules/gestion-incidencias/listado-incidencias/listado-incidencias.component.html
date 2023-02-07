@@ -1,0 +1,16 @@
+<h3 style="text-align:center"> Lista Incidencias
+	<abbr title="Haz click en cualquier botton para ver los detalles de la Incidencia" ><button class="btn btn-warning">?</button></abbr>
+</h3>
+
+
+<ul *ngFor="let incidencia of listaIncidencias" class="list-group">
+    <br>
+    <div class="contenedor">
+        <a routerLink="/gestionIncidencias/gestionIncidencias/{{incidencia.id}}" class="btn btn-primary" style="width: 18rem;">
+            Lugar: {{incidencia.data.lugar}} <br>
+            Descripcion: {{incidencia.data.descripcion}} 
+	    </a>
+    </div>
+</ul>
+
+
