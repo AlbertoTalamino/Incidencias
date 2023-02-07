@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RevisionIncidenciasRoutingModule } from './revision-incidencias-routing.module';
 import { RevisionIncidenciasComponent } from './revision-incidencias.component';
 import { ListadoIncidenciasComponent } from './listado-incidencias/listado-incidencias.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ListadoIncidenciasComponent } from './listado-incidencias/listado-incid
   ],
   imports: [
     CommonModule,
-    RevisionIncidenciasRoutingModule
+    RevisionIncidenciasRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class RevisionIncidenciasModule { }

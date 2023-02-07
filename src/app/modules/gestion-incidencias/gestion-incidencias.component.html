@@ -33,13 +33,13 @@
             <br/>
             <div class="form-group">
                 <label>Estado</label>
-                <!--<select class="form-control" formControlName="estado">
+                <select class="form-control" formControlName="estado">
                     <option>Leida</option>             
                     <option>Asignada</option>
                     <option>Comenzada</option>
                     <option>Terminada</option>
-                </select>-->
-                <input class="form-control" formControlName="estado">
+                </select>
+                <!--<input class="form-control" formControlName="estado">-->
             </div>
 
             <br/>
@@ -56,7 +56,7 @@
 
             <br/>
             <button class="btn btn-info" type="button" class="btn btn-success" (click)="actualizarEstado()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actualizar estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-           
+            <button type="button" class="btn btn-info" (click)="goBack()">&nbsp;&nbsp;Volver&nbsp;&nbsp;</button>            
         </form>
     </div>
 </div>

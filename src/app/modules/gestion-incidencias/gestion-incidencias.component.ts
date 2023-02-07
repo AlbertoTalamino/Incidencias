@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IncidenciasService } from 'src/app/shared/services/incidencias.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe, Location } from '@angular/common';
 
 @Component({
   selector: 'app-gestion-incidencias',
@@ -14,12 +15,13 @@ export class GestionIncidenciasComponent {
   documentId?: any;
   datosIncidencia: any;
 
+
   //Formulario reactivo
   dataIncidencia = this.fb.group({
     persona: [''],
     lugar: [''],
     descripcion: [''],
-    fecha: [new Date()],
+    fecha: [''],
     responsable: [null],
     estado: [null , Validators.required],
     solucion: [null],
@@ -29,10 +31,12 @@ export class GestionIncidenciasComponent {
   constructor(
     private incidenciasService: IncidenciasService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
+
     this.documentId = this.route.snapshot.paramMap.get("documentId");
     this.incidenciasService.getIncidencia(this.documentId).subscribe((resp) => {
       this.datosIncidencia = resp.payload.data();
@@ -41,15 +45,28 @@ export class GestionIncidenciasComponent {
   }
 
   actualizarEstado(){
-    this.incidenciasService.updateIncidencia(this.documentId, this.datosIncidencia).then(
-      () => {
-        alert("Estado actualizado");
-      },
-      (error) => {
-        alert("¡A ocurrido un error!");
-        console.log(error);
-      }
-    );
+    this.datosIncidencia = this.dataIncidencia.value;
+
+    if (this.dataIncidencia.valid) {
+      
+      this.incidenciasService.updateIncidencia(this.documentId, this.datosIncidencia).then(
+        () => {
+          alert("Registro actualizado");
+        },
+        (error) => {
+          alert("¡A ocurrido un error!");
+          console.log(error);
+        }
+      );
+  
+    }else{
+      this.dataIncidencia.reset();
+      alert("Complete los campos");
+    }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

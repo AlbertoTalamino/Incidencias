@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IncidenciasService } from '../../shared/services/incidencias.service';
@@ -11,13 +12,14 @@ export class IntroduccionIncidenciasComponent {
   
   //Propiedades
   datosIncidencia: any;
+  date = new Date();
 
   //Formulario reactivo
   dataIncidencia = this.fb.group({
     persona: ['', Validators.required],
     lugar: ['', Validators.required],
     descripcion: ['', Validators.required],
-    fecha: [new Date()],
+    fecha: [this.date.toLocaleDateString()],
     responsable: [null],
     estado: [null],
     solucion: [null],
@@ -30,6 +32,7 @@ export class IntroduccionIncidenciasComponent {
   ) { }
 
   ngOnInit(): void {
+
   }
   
   anotarIncidencia(){

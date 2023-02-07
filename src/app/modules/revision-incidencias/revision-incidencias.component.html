@@ -1,1 +1,61 @@
-<p>revision-incidencias works!</p>
+<div class="contenedor">
+    <div class="card">  
+        <form [formGroup]="dataIncidencia">
+            <div class="form-group">
+              <label>Persona</label>
+              <input class="form-control" formControlName="persona" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Lugar</label>
+                <input class="form-control" formControlName="lugar" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input class="form-control" formControlName="descripcion" readonly> 
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Fecha</label>
+                <input class="form-control" formControlName="fecha" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Responsable</label>
+                <input class="form-control" formControlName="responsable" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Estado</label>
+                <input class="form-control" formControlName="estado" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Solucion</label>
+                <input class="form-control" formControlName="solucion" readonly>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <label>Revisada</label>
+                <select class="form-control" formControlName="revisada">
+                    <option>false</option>             
+                    <option>true</option>
+                </select>
+                <!--<input class="form-control" formControlName="revisada">-->
+            </div>
+
+            <br/>
+            <button class="btn btn-info" type="button" class="btn btn-success" (click)="actualizarEstado()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actualizar estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button type="button" class="btn btn-info" (click)="goBack()">&nbsp;&nbsp;Volver&nbsp;&nbsp;</button>
+        </form>
+    </div>
+</div>
+
