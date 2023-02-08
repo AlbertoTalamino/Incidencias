@@ -7,7 +7,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { MenuComponent } from './views/menu/menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { WellcomeComponent } from './views/wellcome/wellcome.component'; 
+import { WellcomeComponent } from './views/wellcome/wellcome.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({ 
   declarations: [ 
     AppComponent,
@@ -18,7 +19,7 @@ import { WellcomeComponent } from './views/wellcome/wellcome.component';
     BrowserModule, 
     AppRoutingModule, 
     AngularFirestoreModule, 
-    AngularFireModule.initializeApp(environment.firebase), NgbModule
+    AngularFireModule.initializeApp(environment.firebase), NgbModule, BrowserAnimationsModule
   ], 
   providers: [], 
   bootstrap: [AppComponent] 

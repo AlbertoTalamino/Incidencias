@@ -39,7 +39,13 @@ export class IncidenciasService {
   }
 
   //Where
+  getFilterIncidencia(revisada: boolean){
+    return this.firebase.collection(this.miColeccion, ref => ref.where('revisada', '==', revisada)).snapshotChanges();
+  }
+
+  //Where specific
   getSpecificIncidencia(documentId: string, id: number){
     return this.firebase.collection(this.miColeccion, ref => ref.where('id', '==', id)).doc(documentId).snapshotChanges();
   }
+  
 }

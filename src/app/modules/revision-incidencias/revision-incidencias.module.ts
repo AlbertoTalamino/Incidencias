@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RevisionIncidenciasRoutingModule } from './revision-incidencias-routing.module';
 import { RevisionIncidenciasComponent } from './revision-incidencias.component';
 import { ListadoIncidenciasComponent } from './listado-incidencias/listado-incidencias.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RevisionIncidenciasRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule
   ]
 })
 export class RevisionIncidenciasModule { }
