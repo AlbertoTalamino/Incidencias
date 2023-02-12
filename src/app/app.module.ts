@@ -11,7 +11,7 @@ import { WellcomeComponent } from './views/wellcome/wellcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { RegisterComponent } from './auth/register/register.component';
+import { RegisterComponent } from './auth/componets/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({ 
