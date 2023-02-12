@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IncidenciasService } from '../../shared/services/incidencias.service';
+import { IncidenciasService } from '../../shared/core/services/incidencias.service';
 
 @Component({
   selector: 'app-introduccion-incidencias',

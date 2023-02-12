@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IncidenciasService } from '../../../shared/services/incidencias.service';
+import { IncidenciasService } from '../../../shared/core/services/incidencias.service';
 
 @Component({
   selector: 'app-listado-incidencias',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IncidenciasService } from 'src/app/shared/services/incidencias.service';
+import { IncidenciasService } from 'src/app/shared/core/services/incidencias.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe, Location } from '@angular/common';
@@ -32,7 +32,7 @@ export class GestionIncidenciasComponent {
     private incidenciasService: IncidenciasService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private location: Location
+    private location: Location,
   ) {}
 
   ngOnInit(): void {

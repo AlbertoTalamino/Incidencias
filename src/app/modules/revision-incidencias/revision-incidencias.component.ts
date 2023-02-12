@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IncidenciasService } from 'src/app/shared/services/incidencias.service';
+import { IncidenciasService } from 'src/app/shared/core/services/incidencias.service';
 
 @Component({
   selector: 'app-revision-incidencias',
