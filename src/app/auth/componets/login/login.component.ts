@@ -32,5 +32,13 @@ export class LoginComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
+  loginWithGoogle() {
+    this.authService.loginWithGoogle()
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['/']);
+      })
+      .catch(error => console.log(error))
+  }
 
 }
