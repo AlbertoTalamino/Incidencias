@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
-import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +10,27 @@ import firebase from 'firebase/compat/app';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  formLogin: FormGroup;
+
+  constructor(private authService: AuthService, private router: Router) { 
+    this.formLogin = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
+  }
 
   ngOnInit(): void {
    
   }
 
+  onSubmit() {
+    this.authService.login(this.formLogin.value)
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['/']);
+      })
+      .catch(error => console.log(error));
+  }
 
 
 }

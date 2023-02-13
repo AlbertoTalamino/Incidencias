@@ -18,7 +18,6 @@ import { RegisterComponent } from './componets/register/register.component';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
   ]
 })
 export class AuthModule { }
