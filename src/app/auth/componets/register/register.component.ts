@@ -10,13 +10,16 @@ import { UsersService } from '../../core/services/users.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+
   //Propiedades
   datosformReg: any;
+  passwordOk = false;
 
   //Formulario Reactivo
   formReg = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
+    passwordR: ['', Validators.required],
     rol: ['user']
   });
 
@@ -30,7 +33,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.datosformReg = this.formReg.value;
+
+    this.datosformReg = {
+      email: this.formReg.get('email')?.value,
+      password: this.formReg.get('password')?.value,
+      rol: this.formReg.get('rol')?.value
+    };
+    
 
     if (this.formReg.valid) {
 
@@ -56,6 +65,19 @@ export class RegisterComponent implements OnInit {
       alert('Complete los campos');
     }
    
+  }
+
+  compruebaPassword() {
+    const password = this.formReg.get('password')?.value;
+    const passwordR = this.formReg.get('passwordR')?.value;
+    console.log(passwordR, " - ", password);
+    if (password === passwordR) {
+      console.log('Passwords iguales');
+      this.passwordOk = true;
+    } else {
+      console.log('Password no coinciden');
+      this.passwordOk = false;
+    }
   }
 }
 

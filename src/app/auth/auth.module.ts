@@ -17,7 +17,7 @@ import { RegisterComponent } from './componets/register/register.component';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

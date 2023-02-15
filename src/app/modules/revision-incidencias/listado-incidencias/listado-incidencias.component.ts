@@ -26,7 +26,7 @@ export class ListadoIncidenciasComponent implements OnInit {
       incidenciasSnapshot.forEach((incidenciaData:any) => {
 
         this.listaIncidencias.push({
-          id: incidenciaData.payload.doc.id, 
+          id: incidenciaData.payload.doc.id,  
           data: incidenciaData.payload.doc.data()
         });
         

@@ -3,16 +3,21 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
-const modulos = [
+const material = [
   MatButtonToggleModule,
   MatInputModule,
   MatFormFieldModule,
-  MatButtonModule
+  MatButtonModule,
+  
 ];
 
 @NgModule({
-  imports: modulos,
-  exports: modulos
+  imports: material,
+  exports: material,
+  declarations: [
+    DialogBoxComponent
+  ]
 })
 export class MaterialModule { }
