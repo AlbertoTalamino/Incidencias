@@ -8,7 +8,9 @@ import { Incidencia } from '../model/incidencia';
 })
 export class IncidenciasService {
 
+  //Coleccion de Firebase
   private miColeccion = "incidencias";
+
   constructor(private firebase: AngularFirestore) { }
 
   //CRUD

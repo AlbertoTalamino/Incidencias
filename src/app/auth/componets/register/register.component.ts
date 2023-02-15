@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { UsersService } from '../../core/services/users.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
   //Propiedades
   datosformReg: any;
 
@@ -17,51 +17,45 @@ export class RegisterComponent implements OnInit {
   formReg = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
-    passwordR: ['', Validators.required]
-  })
-
+    rol: ['user']
+  });
 
   constructor(
-   private authService: AuthService, 
-   private router: Router,
-   private fb: FormBuilder) {
-    
-  }
+    private authService: AuthService,
+    private usersService: UsersService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
-  ngOnInit(): void {
-    // Añadir validación personalizada al campo passwordR para comprobar que los campos password y passwordR son iguales
-    setTimeout(() => {
-      if (this.formReg.hasError('passwordsNotMatch')) {
-        console.log('Las contraseñas no coinciden');
-        return;
-      }
-    });
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
-
     this.datosformReg = this.formReg.value;
 
-    if (this.formReg.hasError('passwordsNotMatch')) {
-      console.log('Las contraseñas no coinciden');
-      return;
-    }
+    if (this.formReg.valid) {
 
-    this.authService.register(this.datosformReg)
-      .then(response => {
-        console.log(response);
+      //Registro en Authentication
+      this.authService.register(this.datosformReg)
+      .then((response) => {
+        //Registro en usuarios (BBDD Normal)
+        this.usersService.newUser(this.datosformReg).then(
+          () => {
+            alert('Usuario registrado');
+          });
+        
+        //Redirect to
         this.router.navigate(['/']);
       })
-      .catch(error => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        this.formReg.reset();
+        alert('Error al registrar usuario');
+      });
+      
+    } else {
+      alert('Complete los campos');
+    }
+   
   }
-
-  // Función para validar que los campos password y passwordR son iguales
-  private checkPasswordsMatch(passwordControl: AbstractControl): ValidatorFn {
-    return (control: AbstractControl): {[key: string]: any} | null => {
-      const password = passwordControl.value;
-      const passwordR = control.value;
-      return password === passwordR ? null : {'passwordsNotMatch': true};
-    };
-  }
-
 }
+
