@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   logout(){
     this.authService.logout()
     .then( () => {
-      this.currentUserService.setCurrentRol('a');
+      this.currentUserService.setCurrentRol('ninguno');
       console.log(this.currentUserService.getCurrentRol());
       this.router.navigate(['/']);
     })

@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private currentUserService: CurrentUserService,
     private router: Router, 
-    private fb: FormBuilder
-    //public dialog: MatDialog
+    private fb: FormBuilder,
+    public dialog: MatDialog
      ) { }
 
   ngOnInit(): void {
@@ -72,8 +72,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       })
       .catch(error => {
-        console.log(error);
-        //this.dialog.open(DialogBoxComponent);
+        this.dialog.open(DialogBoxComponent);
       });
   }
 
@@ -114,7 +113,7 @@ export class LoginComponent implements OnInit {
         //Redirect to
         this.router.navigate(['/']);
       })
-      .catch(error => console.log(error))
+      this.dialog.open(DialogBoxComponent);
   }
 
 

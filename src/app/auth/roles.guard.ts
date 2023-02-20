@@ -28,7 +28,6 @@ export class RolesGuard implements CanActivate{
 
     checkUserLogin(route: ActivatedRouteSnapshot): boolean {
         this.currentRol = this.currentUserService.getCurrentRol();
-        console.log(this.currentRol);
 
         if(this.currentRol === route.data["role"])
             return true;
