@@ -10,23 +10,22 @@ import { CurrentUserService } from '../../auth/core/services/current-user-servic
 })
 export class MenuComponent implements OnInit {
 
+  rol: string = '';
+
   constructor(
   private authService: AuthService,
   private currentUserService: CurrentUserService,
   private router: Router
-    
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+    this.rol = this.currentUserService.getCurrentRol();
   }
 
   logout(){
-    this.authService.logout()
-    .then( () => {
-      this.currentUserService.setCurrentRol('ninguno');
-      console.log(this.currentUserService.getCurrentRol());
-      this.router.navigate(['/']);
-    })
-    .catch(error => console.log(error));
+    this.currentUserService.setCurrentRol('ninguno')
+
+    this.router.navigate(['/']);
+
   }
 }

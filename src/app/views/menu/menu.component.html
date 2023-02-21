@@ -17,8 +17,10 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
           <a class="btn btn-warning" routerLink="/login">Login</a>
-          <a class="btn btn-danger" (click)="logout()">Logout</a>
+
+          <a *ngIf="rol != ' '" class="btn btn-danger" (click)="logout()">Logout</a>
         </div>
       </div>
     </div>
