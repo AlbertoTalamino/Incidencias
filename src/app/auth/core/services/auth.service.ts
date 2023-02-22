@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -8,9 +8,16 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 })
 export class AuthService {
 
-  constructor(private auth: Auth) { }
+  estadoRegistro: boolean = false;
+
+  constructor(private auth: Auth, private auth2: AngularFireAuth) { }
+
+  thisIsAuthentificated(){
+    return this.auth2.authState;
+  }
 
   login({ email, password }: any) {
+    this.estadoRegistro = true;
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
@@ -19,6 +26,7 @@ export class AuthService {
   }
 
   logout() {
+    this.estadoRegistro = false;
     return signOut(this.auth);
   }
 
